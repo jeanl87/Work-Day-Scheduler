@@ -1,21 +1,25 @@
+$(document).ready(function(){
+let currentDate = moment().format("MMMM Do YYYY");
+let displayDate = document.getElementById("currentDay")
+
+
 let taskInput =(".row textarea[type=text]");
 
 $(".time-div"). each(function () {
     var timeDiv = $(this).attr("id")
-    if(taskInput < currentHour){
-        $(this).addClass("past")
+    if(currentHour > timeDiv){
+        $(this).removeClass("future");
+        $(this).addClass("past");
     }
-    else if(taskInput == currentHour){
-        $(this).addClass("present")
+    else if(currentHour == timeDiv){
+        $(this).addClass("present");
     }
-    else if(taskInput > currentHour){
-        $(this).addClass("future") 
+    else if(currentHour < timeDiv){
+        $(this).addRemove("present");
+        $(this).addClass("future"); 
     }
 }
 );
-
-
-$(document).ready(function(){
 
     $(".saveBtn").on("click", function(){
         var time = $(this).parent().attr('id')
