@@ -1,6 +1,6 @@
 $(document).ready(function(){
 let currentDate = moment().format("MMMM Do YYYY");
-let displayDate = document.getElementById("currentDay")
+let displayDate = document.getElementById("currentDay");
 
 
 let taskInput =(".row textarea[type=text]");
